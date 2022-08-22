@@ -1,0 +1,43 @@
+.session-search {
+    max-width: 86vw;
+}
+
+.session-search__button {
+    border-radius: 0;
+}
+
+.session {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 19vh;
+    box-shadow: 0 .8rem 1rem rgba(0,0,0,.25);
+    transition: 0.3s ease;
+    padding: 40px;
+}
+
+.session:hover {
+    cursor: pointer;
+    transition: 0.3s ease;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.session__content {
+    color: #fff;
+    text-align: center;
+}
+
+.session__content__film {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.session__content__text {
+    color: #e2e3e5;
+}

@@ -1,5 +1,6 @@
 package com.admiralxy.cinema.config;
 
+import org.h2.server.web.WebServlet;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -13,6 +14,10 @@ public class ApplicationConfig implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+
+        servletContext
+                .addServlet("H2Console", WebServlet.class)
+                .addMapping("/console/*");
 
         context.register(WebConfig.class);
 

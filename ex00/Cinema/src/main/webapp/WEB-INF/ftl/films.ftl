@@ -8,7 +8,7 @@
     <#if section="content">
         <div class="col-12 pb-5">
             <@modal.layout name="newFilm" description="New movie">
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="${springMacroRequestContext.contextPath}/admin/panel/save" enctype="multipart/form-data">
                     <div class="mb-3">
                         <div class="form-floating">
                             <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
@@ -17,8 +17,8 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input type="number" class="form-control" name="year" id="year" placeholder="Year" required>
-                            <label for="year">Year</label>
+                            <input type="number" class="form-control" name="release_date" id="release_date" placeholder="Year" required>
+                            <label for="release_date">Year</label>
                         </div>
                     </div>
                     <div class="mb-3">

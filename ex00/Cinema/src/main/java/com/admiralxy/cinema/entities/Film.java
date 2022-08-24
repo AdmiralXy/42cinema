@@ -21,6 +21,6 @@ public class Film extends BaseEntity {
     private String ageRestrictions;
 
     @Lob
-    @Column(name = "description", length = 20000, nullable = false)
+    @Column(name = "description", nullable = false, length = 20000)
     private String description;
 }

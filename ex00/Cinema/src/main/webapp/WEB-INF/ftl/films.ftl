@@ -17,8 +17,8 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input type="number" class="form-control" name="release_date" id="release_date" placeholder="Year" required>
-                            <label for="release_date">Year</label>
+                            <input type="number" class="form-control" name="release_year" id="release_year" placeholder="Year" required>
+                            <label for="release_year">Year</label>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="film__info">
                         <p class="film__info__title">${film.title}</p>
-                        <p class="film__info__release">${film.releaseDate}, ${film.ageRestrictions}</p>
+                        <p class="film__info__release">${film.releaseYear}, ${film.ageRestrictions}</p>
                     </div>
                 </div>
             </div>

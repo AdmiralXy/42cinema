@@ -1,5 +1,7 @@
 package com.admiralxy.cinema.controllers;
 
+import com.admiralxy.cinema.services.interfaces.IFilmsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +15,6 @@ public class TestController {
     @GetMapping("sessions")
     public String sessions(@ModelAttribute("model") ModelMap model) {
         return "sessions";
-    }
-
-    @GetMapping("films")
-    public String films(@ModelAttribute("model") ModelMap model) {
-        return "films";
     }
 
     @GetMapping("halls")

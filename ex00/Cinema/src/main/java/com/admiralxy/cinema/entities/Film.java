@@ -15,7 +15,7 @@ public class Film extends BaseEntity {
     private String title;
 
     @Column(name = "release_date")
-    private String year;
+    private String releaseDate;
 
     @Column(name = "age_restrictions")
     private String ageRestrictions;

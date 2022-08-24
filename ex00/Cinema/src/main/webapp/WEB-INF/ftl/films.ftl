@@ -8,7 +8,7 @@
     <#if section="content">
         <div class="col-12 pb-5">
             <@modal.layout name="newFilm" description="New movie">
-                <form method="POST" action="${springMacroRequestContext.contextPath}/admin/panel/save" enctype="multipart/form-data">
+                <form method="POST" action="?" enctype="multipart/form-data">
                     <div class="mb-3">
                         <div class="form-floating">
                             <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
@@ -26,13 +26,14 @@
                         <select class="form-select" name="age_restrictions" id="age_restrictions" required>
                             <option value="0+">0+</option>
                             <option value="6+">6+</option>
+                            <option value="12+">12+</option>
                             <option value="16+">16+</option>
-                            <option value="16+">18+</option>
+                            <option value="18+">18+</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <textarea class="form-control" id="description" placeholder="Description"
+                            <textarea class="form-control" name="description" id="description" placeholder="Description"
                                       rows="24" required></textarea>
                             <label for="description">Description</label>
                         </div>
@@ -45,53 +46,19 @@
                 </form>
             </@modal.layout>
         </div>
-        <div class="page-card col-xxl-3 col-xl-4 col-md-6">
-            <div class="film">
-                <div class="film__poster">
-                    <img class="film__poster__image"
-                         src="${springMacroRequestContext.contextPath}/img/placeholder-poster.jpg" alt="none">
-                </div>
-                <div class="film__info">
-                    <p class="film__info__title">Inside Battle: Historical Drum</p>
-                    <p class="film__info__release">2022, 12+</p>
-                </div>
-            </div>
-        </div>
-        <div class="page-card col-xxl-3 col-xl-4 col-md-6">
-            <div class="film">
-                <div class="film__poster">
-                    <img class="film__poster__image"
-                         src="${springMacroRequestContext.contextPath}/img/placeholder-poster.jpg" alt="none">
-                </div>
-                <div class="film__info">
-                    <p class="film__info__title">Bad way to home</p>
-                    <p class="film__info__release">2022, 16+</p>
+        <#list films as film>
+            <div class="page-card col-xxl-3 col-xl-4 col-md-6">
+                <div class="film">
+                    <div class="film__poster">
+                        <img class="film__poster__image"
+                             src="${springMacroRequestContext.contextPath}/images/posters/${film.id}.jpg" alt="none">
+                    </div>
+                    <div class="film__info">
+                        <p class="film__info__title">${film.title}</p>
+                        <p class="film__info__release">${film.releaseDate}, ${film.ageRestrictions}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="page-card col-xxl-3 col-xl-4 col-md-6">
-            <div class="film">
-                <div class="film__poster">
-                    <img class="film__poster__image"
-                         src="${springMacroRequestContext.contextPath}/img/placeholder-poster.jpg" alt="none">
-                </div>
-                <div class="film__info">
-                    <p class="film__info__title">Joker</p>
-                    <p class="film__info__release">2022, 6+</p>
-                </div>
-            </div>
-        </div>
-        <div class="page-card col-xxl-3 col-xl-4 col-md-6">
-            <div class="film">
-                <div class="film__poster">
-                    <img class="film__poster__image"
-                         src="${springMacroRequestContext.contextPath}/img/placeholder-poster.jpg" alt="none">
-                </div>
-                <div class="film__info">
-                    <p class="film__info__title">Interstellar</p>
-                    <p class="film__info__release">2022, 18+</p>
-                </div>
-            </div>
-        </div>
+        </#list>
     </#if>
 </@base.layout>

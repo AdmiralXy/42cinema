@@ -11,3 +11,21 @@ VALUES ('Inception', '2010', '12+', 'A thief who steals corporate secrets throug
        ('Blade Runner 2049', '2017', '18+', 'Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what`s left of society into chaos. K`s discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.'),
        ('Inglourious Basterds', '2009', '16+', 'In Nazi-occupied France during World War II, a group of Jewish-American soldiers known as "The Basterds" are chosen specifically to spread fear throughout the Third Reich by scalping and brutally killing Nazis. The Basterds, lead by Lt. Aldo Raine soon cross paths with a French-Jewish teenage girl who runs a movie theater in Paris which is targeted by the soldiers.'),
        ('The Big Short', '2015', '18+', 'In 2006-2007 a group of investors bet against the US mortgage market. In their research, they discover how flawed and corrupt the market is.');
+
+INSERT INTO halls (serial, seats)
+VALUES (1, 50),
+       (2, 10),
+       (3, 25),
+       (4, 65),
+       (5, 70);
+
+INSERT INTO sessions (hall_id, film_id, start_at, cost)
+VALUES (2, 5, '2022-10-01 10:25:00', 3.5),
+       (1, 4, '2022-10-02 16:10:00', 4),
+       (4, 7, '2022-10-03 22:00:00', 5),
+       (2, 8, '2022-10-06 00:25:00', 8),
+       (2, 1, '2022-10-07 11:40:00', 2.5),
+       (1, 10, '2022-10-13 13:15:00', 12.25),
+       (1, 4, '2022-10-14 18:50:00', 4),
+       (3, 12, '2022-10-23 22:30:00', 10),
+       (4, 2, '2022-10-25 09:30:00', 7);

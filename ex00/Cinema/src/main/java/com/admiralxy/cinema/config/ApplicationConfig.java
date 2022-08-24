@@ -7,8 +7,10 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import javax.servlet.FilterRegistration;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
+import java.io.File;
 
 public class ApplicationConfig implements WebApplicationInitializer {
     @Override
@@ -27,6 +29,12 @@ public class ApplicationConfig implements WebApplicationInitializer {
         dispatcher.addMapping("/");
         dispatcher.setInitParameter("contextClass", context.getClass().getName());
         servletContext.addListener(new ContextLoaderListener(context));
+
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(
+                new File(System.getProperty("java.io.tmpdir")).getAbsolutePath(),
+                52428800, 52428800 * 2, 52428800 / 2
+        );
+        dispatcher.setMultipartConfig(multipartConfigElement);
 
         FilterRegistration.Dynamic fr = servletContext.addFilter("encodingFilter", CharacterEncodingFilter.class);
         fr.setInitParameter("encoding", "UTF-8");

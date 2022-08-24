@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class FilmCreateDTO implements MappableDTO<Film> {
+
     private String title;
     private Integer release_year;
     private String age_restrictions;

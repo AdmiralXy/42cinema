@@ -1,6 +1,6 @@
 package com.admiralxy.cinema.dto;
 
-import lombok.*;
+import lombok.Data;
 import com.admiralxy.cinema.entities.Film;
 import com.admiralxy.cinema.dto.interfaces.MappableDTO;
 import org.springframework.web.multipart.MultipartFile;

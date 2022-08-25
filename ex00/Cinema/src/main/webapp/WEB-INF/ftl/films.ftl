@@ -55,7 +55,7 @@
                     </div>
                     <div class="film__info">
                         <p class="film__info__title">${film.title}</p>
-                        <p class="film__info__release">${film.releaseYear}, ${film.ageRestrictions}</p>
+                        <p class="film__info__release">${film.releaseYear?string.computer}, ${film.ageRestrictions}</p>
                     </div>
                 </div>
             </div>

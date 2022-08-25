@@ -15,7 +15,7 @@ public class SessionsRepository implements ISessionsRepository {
 
     @Override
     public List<Session> findAll() {
-        return entityManager.createQuery("FROM Session", Session.class).getResultList();
+        return entityManager.createQuery("SELECT s FROM Session s JOIN FETCH s.film f JOIN FETCH s.hall h", Session.class).getResultList();
     }
 
     @Override

@@ -17,8 +17,8 @@ public class ImagesController {
         this.storageService = storageService;
     }
 
-    @GetMapping(produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
+    @GetMapping(produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<?> index(@PathVariable("folderName") String folderName, @PathVariable("imageName") String imageName) {
         String imagePath = String.format("src/main/resources/images/%s/%s", folderName, imageName);
         String placeholderPath = "src/main/resources/images/placeholder.jpg";

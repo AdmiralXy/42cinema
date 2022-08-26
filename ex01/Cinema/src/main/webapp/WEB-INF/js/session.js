@@ -4,14 +4,14 @@ function updateSessionList(sessions) {
         $('.search-form').after(() => {
             return `
                 <div class="page-card col-xxl-3 col-xl-4 col-md-6">
-                    <div class="session" style="background-image: url('/images/posters/${session.film.id}.jpg')">
+                    <a class="session" href="/sessions/${session.id}" style="background-image: url('/images/posters/${session.film.id}.jpg')">
                         <div class="session__content">
                             <p class="session__content__film">${session.film.title}</p>
                             <p class="session__content__text">Hall #${session.hall.serial}</p>
                             <p class="session__content__text">${session.start_at}</p>
                             <p class="session__content__text">${session.cost}$</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             `
         })

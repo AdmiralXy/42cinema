@@ -46,6 +46,11 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="${springMacroRequestContext.contextPath}/sessions">
+                            Search
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>

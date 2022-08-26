@@ -24,8 +24,18 @@ public class SessionsService implements ISessionsService {
     }
 
     @Override
+    public Session findById(int id) {
+        return this.sessionsRepository.findById(id);
+    }
+
+    @Override
     public List<Session> findAll() {
         return this.sessionsRepository.findAll();
+    }
+
+    @Override
+    public List<Session> findByFilmTitle(String title) {
+        return this.sessionsRepository.findByFilmTitle(title);
     }
 
     @Override

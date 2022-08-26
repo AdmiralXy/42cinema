@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller("AdminSessions")
 @RequestMapping("admin/panel/sessions")
 public class SessionsController {
 

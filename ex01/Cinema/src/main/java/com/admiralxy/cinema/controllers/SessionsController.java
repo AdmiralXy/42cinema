@@ -1,47 +1,43 @@
 package com.admiralxy.cinema.controllers;
 
-import com.admiralxy.cinema.dto.SessionCreateDTO;
 import com.admiralxy.cinema.dto.SessionDTO;
-import com.admiralxy.cinema.services.interfaces.IFilmsService;
-import com.admiralxy.cinema.services.interfaces.IHallsService;
 import com.admiralxy.cinema.services.interfaces.ISessionsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import java.util.List;
 
 @Controller
-@RequestMapping("admin/panel/sessions")
+@RequestMapping("sessions")
 public class SessionsController {
 
     private final ISessionsService sessionsService;
 
-    private final IHallsService hallsService;
-
-    private final IFilmsService filmsService;
-
     @Autowired
-    public SessionsController(ISessionsService sessionsService, IHallsService hallsService, IFilmsService filmsService) {
+    public SessionsController(ISessionsService sessionsService) {
         this.sessionsService = sessionsService;
-        this.hallsService = hallsService;
-        this.filmsService = filmsService;
     }
 
     @GetMapping
     public ModelAndView index(@ModelAttribute("model") ModelMap model) {
         model.addAttribute("sessions", SessionDTO.fromEntities(this.sessionsService.findAll()));
-        model.addAttribute("halls", this.hallsService.findAll());
-        model.addAttribute("films", this.filmsService.findAll());
-        return new ModelAndView("sessions", model);
+        return new ModelAndView("pages/sessions", model);
     }
 
-    @PostMapping
-    public String create(@ModelAttribute("session") SessionCreateDTO session) {
-        this.sessionsService.save(session);
-        return "redirect:/admin/panel/sessions";
+    @ResponseBody
+    @GetMapping("search")
+    public ResponseEntity<?> search(@RequestParam("filmName") String filmName) {
+        List<SessionDTO> sessions = SessionDTO.fromEntities(this.sessionsService.findByFilmTitle(filmName));
+        return new ResponseEntity<>(sessions, HttpStatus.OK);
+    }
+
+    @GetMapping("session/{id}")
+    public ModelAndView show(@PathVariable("id") int id, @ModelAttribute("model") ModelMap model) {
+        model.addAttribute("session", this.sessionsService.findById(id));
+        return new ModelAndView("pages/session", model);
     }
 }

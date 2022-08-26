@@ -11,6 +11,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Session extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

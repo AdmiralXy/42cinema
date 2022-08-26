@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Hall extends BaseEntity {
 
     @Column(name = "serial", nullable = false)

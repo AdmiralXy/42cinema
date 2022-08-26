@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Film extends BaseEntity {
 
     @Column(name = "title", nullable = false)

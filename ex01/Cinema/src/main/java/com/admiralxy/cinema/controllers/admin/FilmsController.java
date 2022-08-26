@@ -1,4 +1,4 @@
-package com.admiralxy.cinema.controllers;
+package com.admiralxy.cinema.controllers.admin;
 
 import com.admiralxy.cinema.dto.FilmCreateDTO;
 import com.admiralxy.cinema.services.interfaces.IFilmsService;
@@ -23,7 +23,7 @@ public class FilmsController {
     @GetMapping
     public ModelAndView index(@ModelAttribute("model") ModelMap model) {
         model.addAttribute("films", this.filmsService.findAll());
-        return new ModelAndView("films", model);
+        return new ModelAndView("pages/admin/films", model);
     }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

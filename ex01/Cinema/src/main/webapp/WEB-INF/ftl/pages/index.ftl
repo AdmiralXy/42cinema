@@ -1,4 +1,4 @@
-<#import "layouts/application.ftl" as base>
+<#import "../layouts/application.ftl" as base>
 
 <@base.layout; section>
     <#if section="content">

@@ -1,4 +1,4 @@
-package com.admiralxy.cinema.controllers;
+package com.admiralxy.cinema.controllers.admin;
 
 import com.admiralxy.cinema.dto.HallCreateDTO;
 import com.admiralxy.cinema.services.interfaces.IHallsService;
@@ -25,7 +25,7 @@ public class HallsController {
     @GetMapping
     public ModelAndView index(@ModelAttribute("model") ModelMap model) {
         model.addAttribute("halls", this.hallsService.findAll());
-        return new ModelAndView("halls", model);
+        return new ModelAndView("pages/admin/halls", model);
     }
 
     @PostMapping

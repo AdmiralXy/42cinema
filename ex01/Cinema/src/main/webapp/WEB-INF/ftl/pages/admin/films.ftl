@@ -1,5 +1,5 @@
-<#import "layouts/application.ftl" as base>
-<#import "components/modal.ftl" as modal>
+<#import "../../layouts/application.ftl" as base>
+<#import "../../components/modal.ftl" as modal>
 
 <@base.layout; section>
     <#if section="css">

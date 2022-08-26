@@ -1,5 +1,4 @@
 <#import "../layouts/application.ftl" as base>
-<#import "../components/modal.ftl" as modal>
 
 <@base.layout; section>
     <#if section="css">
@@ -8,30 +7,33 @@
     <#if section="content">
         <div class="col-xl-3 pt-lg-5">
             <div class="session-poster">
-                <img class="session-poster__image" src="${springMacroRequestContext.contextPath}/img/placeholder-poster.jpg" alt="none">
+                <img class="session-poster__image"
+                     src="${springMacroRequestContext.contextPath}/images/posters/${session.film.id}.jpg"
+                     alt="none"
+                >
             </div>
         </div>
         <div class="col-xl-9 pt-lg-5">
             <div class="session-info">
                 <p class="session-info__title">
-                    Interstellar: about time
+                    ${session.film.title}
                 </p>
                 <p class="session-info__rating">
-                    2022, 18+
+                    ${session.film.releaseYear?string.computer}, ${session.film.ageRestrictions}
                 </p>
                 <p class="session-info__description">
-                    Sed fringilla risus a lacus iaculis vestibulum. Integer augue quam, mollis a tellus in, posuere maximus dolor. Nullam non malesuada lorem, ac faucibus tellus. Suspendisse porttitor ultricies sollicitudin. Sed id ante ac ex porttitor aliquet vel et justo. Morbi elementum, felis a consectetur rutrum, ex nibh dictum eros, ut consectetur urna mi vel ipsum. Curabitur consequat lectus metus, vitae lobortis dolor tincidunt at. In tempus lacinia purus et congue.
+                    ${session.film.description}
                 </p>
             </div>
             <div class="session-hall">
                 <p class="session-hall__info">
-                    Hall #54, 50 seats
+                    Hall #${session.hall.serial}, ${session.hall.seats} seats
                 </p>
                 <p class="session-hall__info">
-                    22.08.2022 20:25
+                    ${session.start_at}
                 </p>
                 <p class="session-hall__price">
-                    5.5 $
+                    ${session.cost} $
                 </p>
             </div>
         </div>

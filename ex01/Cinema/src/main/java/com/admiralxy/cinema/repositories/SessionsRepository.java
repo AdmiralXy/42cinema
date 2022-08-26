@@ -15,8 +15,12 @@ public class SessionsRepository implements ISessionsRepository {
     private EntityManager entityManager;
 
     @Override
-    public Session findById(int id) {
-        return entityManager.createQuery("SELECT s FROM Session s WHERE s.id = :id", Session.class).getSingleResult();
+    public Session findById(Long id) {
+        TypedQuery<Session> query = entityManager.createQuery(
+                "SELECT s FROM Session s WHERE s.id = :id", Session.class
+        );
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
 
     @Override

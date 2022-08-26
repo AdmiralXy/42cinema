@@ -24,7 +24,7 @@ public class SessionsService implements ISessionsService {
     }
 
     @Override
-    public Session findById(int id) {
+    public Session findById(Long id) {
         return this.sessionsRepository.findById(id);
     }
 

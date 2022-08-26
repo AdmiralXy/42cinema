@@ -22,17 +22,21 @@ public class SessionDTO {
 
     private BigDecimal cost;
 
+    public static SessionDTO fromEntity(Session session) {
+        SessionDTO sessionDTO = new SessionDTO();
+        sessionDTO.id = session.getId();
+        sessionDTO.hall = session.getHall();
+        sessionDTO.film = session.getFilm();
+        sessionDTO.start_at = new SimpleDateFormat("dd.MM.yyyy HH:mm")
+                .format(session.getStartAt());
+        sessionDTO.cost = session.getCost();
+        return sessionDTO;
+    }
+
     public static List<SessionDTO> fromEntities(List<Session> sessions) {
         List<SessionDTO> sessionsDto = new ArrayList<>();
         for (Session session : sessions) {
-            SessionDTO sessionDTO = new SessionDTO();
-            sessionDTO.id = session.getId();
-            sessionDTO.hall = session.getHall();
-            sessionDTO.film = session.getFilm();
-            sessionDTO.start_at = new SimpleDateFormat("dd.MM.yyyy HH:mm")
-                    .format(session.getStartAt());
-            sessionDTO.cost = session.getCost();
-            sessionsDto.add(sessionDTO);
+            sessionsDto.add(fromEntity(session));
         }
         return sessionsDto;
     }

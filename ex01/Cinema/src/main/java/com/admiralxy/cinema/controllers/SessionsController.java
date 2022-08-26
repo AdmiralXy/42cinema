@@ -35,9 +35,9 @@ public class SessionsController {
         return new ResponseEntity<>(sessions, HttpStatus.OK);
     }
 
-    @GetMapping("session/{id}")
-    public ModelAndView show(@PathVariable("id") int id, @ModelAttribute("model") ModelMap model) {
-        model.addAttribute("session", this.sessionsService.findById(id));
+    @GetMapping("{id}")
+    public ModelAndView show(@PathVariable("id") Long id, @ModelAttribute("model") ModelMap model) {
+        model.addAttribute("session", SessionDTO.fromEntity(this.sessionsService.findById(id)));
         return new ModelAndView("pages/session", model);
     }
 }

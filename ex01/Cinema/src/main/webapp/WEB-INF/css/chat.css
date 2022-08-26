@@ -1,0 +1,64 @@
+.film-info__title {
+    font-size: 52px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.film-info__title span {
+    display: block;
+    position: absolute;
+    font-weight: 300;
+    font-size: 20px;
+    bottom: -8px;
+}
+
+.chat {
+    height: 54vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: #212529;
+}
+
+.chat__container {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 26px 26px 26px 0;
+}
+
+.chat-message {
+    padding: 30px;
+    margin: 22px;
+    background: #f1f1f1;
+    border-radius: 13px;
+    min-width: 30%;
+    max-width: fit-content;
+}
+
+.chat-message__author {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.chat-message__text {
+    font-weight: 300;
+}
+
+.input-message {
+    overflow: hidden;
+}
+
+.input-message__button {
+    border-radius: 0;
+}
+
+.input-message__button svg {
+    fill: #fff;
+}
+
+@media (max-width: 767px) {
+    .film-info__title span {
+        display: none;
+    }
+}

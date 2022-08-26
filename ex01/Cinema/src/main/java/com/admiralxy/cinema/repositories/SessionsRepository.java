@@ -31,7 +31,7 @@ public class SessionsRepository implements ISessionsRepository {
     @Override
     public List<Session> findByFilmTitle(String title) {
         TypedQuery<Session> query = entityManager.createQuery(
-                "SELECT s FROM Session s JOIN FETCH s.film f JOIN FETCH s.hall h WHERE f.title LIKE :title",
+                "SELECT s FROM Session s JOIN FETCH s.film f JOIN FETCH s.hall h WHERE lower(f.title) LIKE lower(:title)",
                 Session.class
         );
         query.setParameter("title", String.format("%%%s%%", title));

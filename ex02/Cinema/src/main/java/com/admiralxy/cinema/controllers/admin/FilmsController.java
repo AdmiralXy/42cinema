@@ -28,7 +28,6 @@ public class FilmsController {
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String create(@ModelAttribute("film") FilmCreateDTO film) {
-        System.out.println(film);
         this.filmsService.save(film);
         return "redirect:/admin/panel/films";
     }

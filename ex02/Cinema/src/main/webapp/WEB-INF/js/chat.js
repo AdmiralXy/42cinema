@@ -37,7 +37,6 @@ function sendMessage() {
 }
 
 function showMessage(message) {
-    console.log(message)
     $('.chat__container').prepend(() => {
         return `
             <div class="chat-message">
@@ -58,6 +57,7 @@ $(window).bind('beforeunload', function(){
     disconnect()
 });
 
-$('.input-message__button').click(() => {
+$(".input-message__form").submit((e) => {
+    e.preventDefault()
     sendMessage()
-})
+});

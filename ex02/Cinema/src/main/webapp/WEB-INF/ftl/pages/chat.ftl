@@ -5,7 +5,14 @@
     <#if section="css">
         <link rel="stylesheet" href="${springMacroRequestContext.contextPath}/css/chat.css"/>
     </#if>
+    <#if section="js">
+        <script src="${springMacroRequestContext.contextPath}/js/jquery-3.6.0.min.js"></script>
+        <script src="${springMacroRequestContext.contextPath}/js/sockjs.min.js"></script>
+        <script src="${springMacroRequestContext.contextPath}/js/stomp.min.js"></script>
+        <script src="${springMacroRequestContext.contextPath}/js/chat.js"></script>
+    </#if>
     <#if section="content">
+        <input type="hidden" name="film_id" value="${film.id}" hidden>
         <div class="col-12 pt-3 pb-5">
             <div class="film-info">
                 <p class="film-info__title">${film.title} <span>chat discussion</span></p>
@@ -14,42 +21,13 @@
         <div class="col-12 pb-5">
             <div class="chat">
                 <div class="chat__container">
-                    <div class="chat-message">
-                        <p class="chat-message__author">User #381</p>
-                        <p class="chat-message__text">
-                            Is it a good film?
-                        </p>
-                    </div>
-                    <div class="chat-message">
-                        <p class="chat-message__author">User #381</p>
-                        <p class="chat-message__text">
-                            Nah... That's remake, nothing happens.
-                        </p>
-                    </div>
-                    <div class="chat-message">
-                        <p class="chat-message__author">User #381</p>
-                        <p class="chat-message__text">
-                            Hello to everyone!
-                        </p>
-                    </div>
-                    <div class="chat-message">
-                        <p class="chat-message__author">User #381</p>
-                        <p class="chat-message__text">
-                            Is it a good film?
-                        </p>
-                    </div>
-                    <div class="chat-message">
-                        <p class="chat-message__author">User #381</p>
-                        <p class="chat-message__text">
-                            Nah... That's remake, nothing happens.
-                        </p>
-                    </div>
-                    <div class="chat-message">
-                        <p class="chat-message__author">User #381</p>
-                        <p class="chat-message__text">
-                            Hello to everyone!
-                        </p>
-                    </div>
+                    <#list messages as message>
+                        <div class="chat-message">
+                            <p class="chat-message__date">${message.created_at}</p>
+                            <p class="chat-message__author">${message.username}</p>
+                            <p class="chat-message__text">${message.message}</p>
+                        </div>
+                    </#list>
                 </div>
                 <div class="input-message">
                     <div class="input-group">

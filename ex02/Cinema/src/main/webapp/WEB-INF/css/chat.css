@@ -37,6 +37,12 @@
     max-width: fit-content;
 }
 
+.chat-message__date {
+    font-size: 0.8em;
+    margin-bottom: 12px;
+    color: #626262;
+}
+
 .chat-message__author {
     font-size: 17px;
     font-weight: bold;

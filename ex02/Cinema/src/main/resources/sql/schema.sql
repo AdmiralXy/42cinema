@@ -21,3 +21,12 @@ CREATE TABLE IF NOT EXISTS sessions(
     FOREIGN KEY (hall_id) REFERENCES halls(id),
     FOREIGN KEY (film_id) REFERENCES films(id)
 );
+
+CREATE TABLE IF NOT EXISTS messages(
+    id IDENTITY NOT NULL PRIMARY KEY,
+    film_id INT NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    message CLOB NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (film_id) REFERENCES films(id)
+);

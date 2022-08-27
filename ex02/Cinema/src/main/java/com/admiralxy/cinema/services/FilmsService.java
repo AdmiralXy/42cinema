@@ -28,6 +28,11 @@ public class FilmsService implements IFilmsService {
     }
 
     @Override
+    public Film findById(Long id) {
+        return this.filmsRepository.findById(id);
+    }
+
+    @Override
     public List<Film> findAll() {
         return this.filmsRepository.findAll();
     }

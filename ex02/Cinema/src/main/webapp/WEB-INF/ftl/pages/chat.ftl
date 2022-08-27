@@ -8,7 +8,7 @@
     <#if section="content">
         <div class="col-12 pt-3 pb-5">
             <div class="film-info">
-                <p class="film-info__title">Interstellar: time of beings <span>chat discussion</span></p>
+                <p class="film-info__title">${film.title} <span>chat discussion</span></p>
             </div>
         </div>
         <div class="col-12 pb-5">

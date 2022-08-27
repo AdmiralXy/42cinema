@@ -24,6 +24,11 @@
     font-weight: 300;
 }
 
+.btn-chat {
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
 .session-info__rating {
     font-size: 12px;
 }

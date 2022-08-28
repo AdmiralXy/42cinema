@@ -1,6 +1,16 @@
-const username = 'user' + Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString().slice(0, 8)
 let filmId = null
 let stompClient = null
+
+function getUsername() {
+    let username = localStorage.getItem('username')
+    console.log(username)
+    if (!username) {
+        console.log('username not exists! creating...')
+        username = 'user' + Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString().slice(0, 8)
+        localStorage.setItem('username', username)
+    }
+    return username
+}
 
 function connect() {
     let socket = new SockJS('/ws')
@@ -29,7 +39,7 @@ function sendMessage() {
         stompClient.send(`/films/${filmId}/chat/messages`, {},
             JSON.stringify({
                 film_id: filmId,
-                username,
+                username: getUsername(),
                 message,
             })
         )

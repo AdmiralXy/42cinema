@@ -1,5 +1,13 @@
 ## Cinema
 
+### About
+
+Spring MVC and Hibernate web application, movie theater admin panel, real-time WebSocket chat, Freemarker pages.
+
+This repository is the basis for the following project:
+
+[https://github.com/AdmiralXy/42springboot](https://github.com/AdmiralXy/42springboot)
+
 ### Dependencies
 
 * Spring
